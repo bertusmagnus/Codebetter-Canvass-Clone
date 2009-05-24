@@ -30,5 +30,20 @@ namespace CodeBetter.Canvas.Web
             _repository.Save(user);
             return View("RegistrationSuccessful");
         }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public ViewResult Login()
+        {
+            return View();
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ViewResult Login([Bind]Credentials user)
+        {
+            if (!ModelState.IsValid) { return View(user); }
+            
+            return View("RegistrationSuccessful");
+        }
+
+
     }
 }

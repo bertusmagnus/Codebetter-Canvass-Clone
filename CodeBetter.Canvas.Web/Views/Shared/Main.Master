@@ -12,9 +12,10 @@
 <div id="header">
     <h1>A Canvas</h1>
     <div id="menu">
-        <a href="<%= Html.LinkTo<HomeController>(c => c.Index()) %>">home</a>        
-        <a href="<%= Html.LinkTo<HomeController>(c => c.Register()) %>">register</a>        
-    </div>    
+        <a href="<%= Html.LinkTo<HomeController>(c => c.Index()) %>">home</a>       
+        <a href="<%= Html.LinkTo<HomeController>(c => c.Login()) %>">login</a> 
+        <a href="<%= Html.LinkTo<HomeController>(c => c.Register()) %>">register</a>
+    </div>
 </div>
 
 <div id="content">
