@@ -1,0 +1,18 @@
+html{padding:0px;margin:0px;font-family:"Trebuchet MS",Tahoma,Verdana,Helvetica,sans-serif;font-size:80%;background:#eee;}
+body{color:#111;width:960px;margin:10px auto;}
+h2{font-size:1.5em;}
+p{margin-bottom:1.5em;}
+
+#header{background:#333;height:35px;padding:10px;}
+#header h1{float:left;font-size:2em;color:#ddd;}
+#menu{float:right;}
+#menu a{color:#fff;padding:0px 10px;font-variant:small-caps;font-size:1.1em;}
+
+#content{background:#fff;padding:20px;}
+
+.formItem{margin-bottom:10px;}
+.formItem label{display:block;font-weight:bold;color:#444;}
+.formItem label.tip{font-weight:normal;color:#444;padding-left:16px;background:url('../images/warning.png') no-repeat;}
+.formItem input{padding:3px;width:185px;border:1px solid #ddd;}
+.formControls input{padding:0px 5px;}
+.formItem .error{border:1px solid #c55;}

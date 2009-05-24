@@ -1,0 +1,34 @@
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" Inherits="System.Web.Mvc.ViewPage" %>
+<asp:Content ID="MainContainer" ContentPlaceHolderID="MainContainer" runat="server">
+<h2>Overview</h2>
+<p>I recently wrote a code-heavy 3-part series on validation. Half-way through, I realized that a sample application would
+probably help bring together all the incoherent code snippets I was throwing around.</p>
+
+<p>Historically, I've been pretty harsh on shitty code-samples (you can go back to when I first started blogging and probably 
+find some pretty harsh criticism of Adobe and MSDN). As a consequence, I've always tried to write above-average code samples, 
+Of course, more recently I've taken a number of high profile projects to task, namely Oxite and Kobe. As soon as I started putting
+this sample together, I saw an opportunity to go beyond demo-ing a custom validation library and provide some of the guidance
+I felt other projects were lacking.</p>
+
+<p>Functionality-wise, all you can do is register a user. The downside of the simplification is that it doesn't address 
+many (most?) of the real challenges you're likely to face. Even I think the entire thing seems rather ivory tower. On the upside
+you can use this project as a canvas for your own project, or as a launch-pad to learn about all types of exciting technologies.
+Specifically, despite the extreme lightweightedness, this project makes use of Dependency Injection (via Ninject), OR Mapping
+(via FluentNHibernate), Unit Testing (via XUnit), mocking (via RhinoMocks) and a couple more trendy topics.</p>
+
+<p>This isn't a perfect example, but I'm pretty happy with it. I think developers who have a genuine interest in learning 
+and enthusiasm for programming will gain a lot from this. I'm sorry for the total lack of documentation, but this is really a
+help-yourself kinda thing. </p>
+
+<p>I should point out that the way I handle the database path (I use sqlite) is horrible. I did it that way so that the application
+will [hopefully] work out of the box (all you need in ASP.NET MVC installed). The hack in question is located in the Configuration class.
+Also, this isn't an opinionated MVC implementation. This isn't really about MVC at all.</p>
+
+<p>If you want help or have a suggestion/comment post a comment here. I'd love to help any way I can, or even better, learn
+to from my mistakes so that I don't do them again.</p>
+
+<p>Finally, I apologize to the people who just wanted to peak at the validation framework. My demo turned into something more.
+If I did a good job, you should be able to easily find all of the pieces.</p>
+</asp:Content>
+
+
