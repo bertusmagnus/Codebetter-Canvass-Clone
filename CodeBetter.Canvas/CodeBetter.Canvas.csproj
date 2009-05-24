@@ -105,6 +105,7 @@
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Helpers\IEnumerableExtensions.cs" />
+    <Compile Include="Helpers\IntegerExtensions.cs" />
     <Compile Include="Helpers\StringBuilderExtensions.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\XmlNodeExtensions.cs" />
@@ -113,6 +114,8 @@
     <Compile Include="Mapping\Conventions\TableNameConvention.cs" />
     <Compile Include="Mapping\ModelContext.cs" />
     <Compile Include="Mapping\UserMap.cs" />
+    <Compile Include="PagedList.cs" />
+    <Compile Include="Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

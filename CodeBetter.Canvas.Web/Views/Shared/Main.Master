@@ -12,19 +12,25 @@
 <div id="header">
     <h1>A Canvas</h1>
     <div id="menu">
-        <a href="<%= Html.LinkTo<HomeController>(c => c.Index()) %>">home</a>       
-        <a href="<%= Html.LinkTo<HomeController>(c => c.Login()) %>">login</a> 
+        <a href="<%= Html.LinkTo<HomeController>(c => c.Index()) %>">home</a>  
+        <% Html.RenderPartial("LoginLogoutMenuItem"); %>                     
         <a href="<%= Html.LinkTo<HomeController>(c => c.Register()) %>">register</a>
     </div>
 </div>
-
+<% 
+    var errors = Html.GetPageErrors();
+    if (errors != null && errors.Length > 0)
+    {
+        Html.RenderPartial("pageErrors", errors);
+    }
+%>    
 <div id="content">
     <asp:ContentPlaceHolder ID="MainContainer" runat="server" />
 </div>
 <script type="text/javascript">
 $(document).ready(function()
 {
-<asp:ContentPlaceHolder ID="DocumentReadyContainer" runat="server"></asp:ContentPlaceHolder>
+<asp:ContentPlaceHolder ID="DocumentReadyContainer" runat="server"></asp:ContentPlaceHolder>  
 })
 </script>   
 </body>

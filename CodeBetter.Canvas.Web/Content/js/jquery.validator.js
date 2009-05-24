@@ -28,10 +28,6 @@
                             v.markAsInvalid($field, options.init[field.id] != '' ? options.init[field.id] : rules[field.id].tip);
                         }   
                     });
-                    if (options.init && options.init['_'] != null)
-                    {
-                        v.showFormError(options.init['_']);
-                    }
                     $form.submit(function()
                     {                                                                    
                         var isValid = true;                        

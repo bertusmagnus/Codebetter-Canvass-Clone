@@ -9,14 +9,14 @@ namespace CodeBetter.Canvas.Tests.Web.HomeControllerTests
         [Fact]
         public void ReturnsDefaultViewWithNoModel()
         {
-            MvcAssert.DefaultView(new HomeController(null).Register());            
+            MvcAssert.DefaultView(new HomeController(null, null).Register());            
         }
 
         [Fact]
         public void ReturnsWithValidationErrors()
         {
             var user = new User();
-            var controller = new HomeController(null);
+            var controller = new HomeController(null, null);
 
             controller.ModelState.AddModelError(string.Empty, string.Empty);
             var result = controller.Register(user);
@@ -28,7 +28,7 @@ namespace CodeBetter.Canvas.Tests.Web.HomeControllerTests
         {
             var user = new User { Credentials = new Credentials() };
             var repository = Dynamic<IUserRepository>();
-            var controller = new HomeController(repository);
+            var controller = new HomeController(null, repository);
 
             repository.Expect(r => r.Save(user));
 
@@ -41,7 +41,7 @@ namespace CodeBetter.Canvas.Tests.Web.HomeControllerTests
         {
             var user = new User { Credentials = new Credentials { Email = "giru@playa.cool" } };
             var repository = Dynamic<IUserRepository>();
-            var controller = new HomeController(repository);
+            var controller = new HomeController(null, repository);
 
             repository.Stub(r => r.Save(user));
 

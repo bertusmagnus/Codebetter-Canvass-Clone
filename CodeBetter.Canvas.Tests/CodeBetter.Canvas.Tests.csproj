@@ -86,6 +86,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\PagedListTests\HasRecordsTests.cs" />
+    <Compile Include="Components\PagedListTests\TotalPagesTests.cs" />
+    <Compile Include="Components\PagerTests\FirstRecordTests.cs" />
+    <Compile Include="Components\PagerTests\MaximumRecordsTest.cs" />
     <Compile Include="Fixtures\BaseFixture.cs" />
     <Compile Include="Fixtures\DatabaseFixture.cs" />
     <Compile Include="MappingTests.cs" />

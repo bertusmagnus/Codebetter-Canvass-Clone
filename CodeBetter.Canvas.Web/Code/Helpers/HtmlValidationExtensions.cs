@@ -20,6 +20,16 @@ namespace CodeBetter.Canvas.Web.Helpers
             var replacement = string.IsNullOrEmpty(prefix) ? string.Empty : string.Concat(prefix, '_');
             return _rules[typeof(T)].Replace("#PREFIX#", replacement);
         }        
+        public static string[] GetPageErrors(this HtmlHelper html)
+        {
+            var errors = (ICollection<ValidationError>)html.ViewData["ValidationErrors"];
+            if (errors == null)
+            {
+                return null;
+            }
+            return errors.Map(e => e.Field == null ? e.Message : null);
+        }
+
         public static string GetValidationErrors(this HtmlHelper html)
         {
             var errors = (ICollection<ValidationError>)html.ViewData["ValidationErrors"];
@@ -28,8 +38,14 @@ namespace CodeBetter.Canvas.Web.Helpers
                 return "init:{}";                    
             }
             var sb = new StringBuilder("init:{");
-            errors.Each(e => sb.AppendFormat("{0}:'{1}',", e.Field, html.Js(e.Message)));
-            return sb.RemoveLast().Append("}").ToString();                        
+            errors.Each(e => 
+                {
+                    if (e.Field != null)
+                    {
+                        sb.AppendFormat("{0}:'{1}',", e.Field, html.Js(e.Message));
+                    }
+                });
+            return sb.RemoveLastIf(',').Append("}").ToString();                        
         }
 
         public static void Initialize(IDictionary<Type, EntityValidationInfo> rules)

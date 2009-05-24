@@ -16,3 +16,17 @@ p{margin-bottom:1.5em;}
 .formItem input{padding:3px;width:185px;border:1px solid #ddd;}
 .formControls input{padding:0px 5px;}
 .formItem .error{border:1px solid #c55;}
+
+#pageErrors{padding:6px;background:#922;border:1px solid #955;color:#fff;font-weight:bold;text-align:center;}
+#pageErrors li{list-style:disc inside;padding:3px;}
+
+.pager{margin-top:10px;}
+.page, a.current{display:block;float:left;padding:4px;border:1px solid #999;text-decoration:none;margin:5px;cursor:pointer}
+a.current{border-width:0px;font-weight:bold;}
+a.page:hover{background:#999;color:#fff;}
+
+.list{width:100%;}
+.list th, .list td{padding:3px;border-bottom:1px solid #ddd;}
+.list th{font-weight:bold;border-bottom:2px solid #555;}
+.list tr.odd{background:#f2f2f2;}
+.list tr.hover{cursor:pointer;background:#bbb;color:#fff;}

@@ -60,9 +60,13 @@
   <ItemGroup>
     <Compile Include="BaseControllerTests.cs" />
     <Compile Include="BinderTests\ModelBinderTests.cs" />
+    <Compile Include="HomeControllerTests\LoginTests.cs" />
+    <Compile Include="HomeControllerTests\LogoutTests.cs" />
     <Compile Include="HomeControllerTests\RegisterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidatorTests\BuildJson.cs" />
+    <Compile Include="ManageControllerTests\IndexTests.cs" />
+    <Compile Include="ManageControllerTests\ViewTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeBetter.Canvas.Tests\CodeBetter.Canvas.Tests.csproj">

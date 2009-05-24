@@ -2,14 +2,17 @@
 namespace CodeBetter.Canvas.Web
 {
     using System.Web.Mvc;
-    
+    using Validation;
+
     public class HomeController : ApplicationController
     {
         private readonly IUserRepository _repository;
+        private readonly IAuthenticationManager _authentication;
 
-        public HomeController(IUserRepository repository) : base()
+        public HomeController(IAuthenticationManager authentication, IUserRepository repository)
         {
-            _repository = repository;            
+            _repository = repository;
+            _authentication = authentication;
         }
 
         [AcceptVerbs(HttpVerbs.Get)]
@@ -37,13 +40,23 @@ namespace CodeBetter.Canvas.Web
             return View();
         }
         [AcceptVerbs(HttpVerbs.Post)]
-        public ViewResult Login([Bind]Credentials user)
+        public ActionResult Login([Bind]Credentials credentials)
         {
-            if (!ModelState.IsValid) { return View(user); }
-            
-            return View("RegistrationSuccessful");
+            if (!ModelState.IsValid) { return View(credentials); }
+
+            var user = _repository.FindByCredentials(credentials);
+            if (user != null)
+            {
+                _authentication.SetAuthenticationToken(user.Id);
+                return RedirectTo<ManageController>(c => c.Index(0));
+            }
+            AddError(new ValidationError(null, "Invalid username/password, please try again"));            
+            return View(credentials);
+        }        
+        public ViewResult Logout()
+        {
+            _authentication.Signout();
+            return View("index");
         }
-
-
     }
 }
