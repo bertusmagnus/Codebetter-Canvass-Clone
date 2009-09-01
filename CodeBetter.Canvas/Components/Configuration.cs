@@ -3,8 +3,7 @@
     using System.Configuration;
     using System.Web;
     using System.Xml;
-    using Helpers;
-
+    
     //HACK!!!!
     //This is the one really-bad thing in this sample application - I did this so that the
     //sample would run-out of the box (no need to configure a database or connection string).

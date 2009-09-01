@@ -1,0 +1,32 @@
+﻿﻿<var errors="Html.GetPageErrors()" />
+<global Title="'Creations Start With An Empty Canvas'" type="string"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    !{Html.IncludeCss("reset")}
+    !{Html.IncludeCss("main")}
+    !{Html.IncludeJs("jquery")}
+    <use content="head" />
+    <title>!{Title}</title> 
+</head>
+<body>
+<div id="header">
+    <h1>A Canvas</h1>
+    <div id="menu">
+        <a href="!{Html.LinkTo<HomeController>(c => c.Index())}">home</a>  
+        <LoginLogoutMenuItem />        
+        <a href="!{Html.LinkTo<HomeController>(c => c.Register())}">register</a>
+    </div>    
+</div>
+<PageData data="errors" name="'pageErrors'" if="errors != null && errors.Length > 0" />
+<div id="content">
+    <use content="view" />
+</div>
+<script type="text/javascript">
+$(document).ready(function()
+{
+<use content="js" />
+})
+</script>   
+</body>
+</html>

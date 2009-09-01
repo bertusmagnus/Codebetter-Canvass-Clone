@@ -14,8 +14,8 @@
             var configuration = Fluently.Configure()
                 .Database(SQLiteConfiguration.Standard.ConnectionString(c => c.Is(connectionString)))
                 .Mappings(m => m.FluentMappings
-                                .AddFromAssemblyOf<User>()
-                                .ConventionDiscovery.AddFromAssemblyOf<TableNameConvention>());
+                                .AddFromAssemblyOf<User>()                                
+                                .Conventions.AddFromAssemblyOf<TableNameConvention>());
 
             Bind<ISessionSource>()
                 .To<SessionSource>()

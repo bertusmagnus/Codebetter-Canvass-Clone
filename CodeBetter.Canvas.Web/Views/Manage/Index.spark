@@ -1,0 +1,22 @@
+<viewdata model="PagedList[[User]]" />
+<content name="head">
+    !{Html.IncludeJs("jquery.list")}
+</content>
+
+<strong if="!Model.HasRecords">There are currently no users (humm...how did you log-in then?!)</strong>
+<table if="Model.HasRecords" class="list" rel="!{Html.LinkTo<ManageController>(c => c.View(0)) }">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>                
+        </tr>
+    </thead>
+    <tbody>        
+        <tr each="var d in Model.Data" rel="!{d.Id}">
+            <td>${d.Name}</td>
+            <td>${d.Credentials.Email}</td>
+        </tr>        
+    </tbody>
+</table>
+<Pager info="Model.PagedInfo" />
+

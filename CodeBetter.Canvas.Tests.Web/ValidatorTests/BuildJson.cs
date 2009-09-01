@@ -1,8 +1,8 @@
 namespace CodeBetter.Canvas.Tests.Web.ValidatorTests
 {
+    using Canvas.Web;
     using Tests.ValidatorTests;
     using Validation;
-    using Canvas.Web.Helpers;
     using Xunit;
 
     public class BuildJson : ValidationFixture

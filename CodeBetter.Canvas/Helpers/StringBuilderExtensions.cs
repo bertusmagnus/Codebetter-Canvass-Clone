@@ -1,4 +1,4 @@
-namespace CodeBetter.Canvas.Helpers
+namespace CodeBetter.Canvas
 {
     using System.Text;
 

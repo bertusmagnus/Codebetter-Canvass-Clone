@@ -1,0 +1,6 @@
+﻿<if condition="((ApplicationController)ViewContext.Controller).CurrentUser == null">
+    <a href="!{Html.LinkTo<HomeController>(c => c.Login()) }">Login</a>
+</if>
+<else>
+    <a href="!{Html.LinkTo<HomeController>(c => c.Logout()) }">Logout</a>
+</else>

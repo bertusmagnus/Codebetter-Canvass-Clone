@@ -14,7 +14,7 @@ namespace CodeBetter.Canvas.Tests
         {
             var configuration = Fluently.Configure()
                 .Database(SQLiteConfiguration.Standard.InMemory())
-                .Mappings(m => m.FluentMappings.ConventionDiscovery.AddFromAssemblyOf<TableNameConvention>());
+                .Mappings(m => m.FluentMappings.Conventions.AddFromAssemblyOf<TableNameConvention>());
 
             SessionSource = new SingleConnectionSessionSourceForSQLiteInMemoryTesting(configuration.BuildConfiguration().Properties, new TestModel());
             SessionSource.BuildSchema();
@@ -24,7 +24,7 @@ namespace CodeBetter.Canvas.Tests
         {
             public TestModel()
             {
-                addMappingsFromAssembly(typeof(User).Assembly);
+                AddMappingsFromAssembly(typeof(User).Assembly);
             }
         }
     }

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F1C47F91-5D88-4405-B2F1-01510AD890C6}</ProjectGuid>
     <ProjectTypeGuids>{603c0e0b-db56-11dc-be95-000d561079b0};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentNHibernate, Version=0.1.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+    <Reference Include="FluentNHibernate, Version=1.0.0.593, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\FluentNHibernate.dll</HintPath>
     </Reference>
@@ -55,6 +55,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Spark, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7f8549eed921a12c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Spark.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark.Web.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Spark.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -69,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\ApplicationViewPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Code\Binders\GenericBinderResolver.cs" />
     <Compile Include="Code\Binders\ModelBinder.cs" />
@@ -98,8 +105,10 @@
     <Content Include="Content\styles\reset.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Home\Index.aspx" />
-    <Content Include="Views\Home\Register.aspx" />
+    <None Include="Views\Home\Index.spark">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Views\Home\Register.spark" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
@@ -111,14 +120,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\js\jquery.list.js" />
-    <Content Include="Views\Home\Login.aspx" />
-    <Content Include="Views\Home\RegistrationSuccessful.aspx" />
-    <Content Include="Views\Manage\View.aspx" />
-    <Content Include="Views\Manage\Index.aspx" />
-    <Content Include="Views\Shared\LoginLogoutMenuItem.ascx" />
-    <Content Include="Views\Shared\Main.Master" />
-    <Content Include="Views\Shared\PageErrors.ascx" />
-    <Content Include="Views\Shared\pager.ascx" />
+    <None Include="Views\Home\Login.spark" />
+    <None Include="Views\Home\RegistrationSuccessful.spark" />
+    <None Include="Views\Manage\View.spark" />
+    <None Include="Views\Manage\Index.spark" />
+    <None Include="Views\Shared\_LoginLogoutMenuItem.spark" />
+    <None Include="Views\Shared\Application.spark" />
+    <None Include="Views\Shared\_PageData.spark" />
+    <None Include="Views\Shared\_Pager.spark" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -140,6 +149,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

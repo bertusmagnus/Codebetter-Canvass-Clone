@@ -1,0 +1,15 @@
+# var pagesToShow = 10;
+# var pages = info.TotalPages > pagesToShow ? pagesToShow : info.TotalPages;
+# var startPage = info.CurrentPage > pagesToShow / 2 && info.TotalPages > pagesToShow ? info.CurrentPage - pagesToShow / 2 : 1;
+# if (startPage + pages > info.TotalPages)
+# {
+# pages = info.TotalPages - startPage + 1;
+# }
+<div class="pager" if="pages > 1">
+    <if condition="startPage > 1"><a class="page">1</a> <div class="page">..</div></if>
+    # pages.Times(i => {
+        <a class="!{info.CurrentPage == i ? "current" : "page"} radiusAll">!{startPage + i - 1}</a>
+    # });
+    <if condition="startPage + pages < info.TotalPages"><div class="page">..</div> <a class="page">!{info.TotalPages}</a></if>    
+    <div class="clear"></div>
+</div> 

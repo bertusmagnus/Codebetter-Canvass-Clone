@@ -2,7 +2,6 @@ namespace CodeBetter.Canvas
 {
     using System;
     using Components;
-    using Helpers;
     using NHibernate;
 
     public interface IRepository

@@ -1,0 +1,32 @@
+<set Title="'Register'" />
+<viewdata model="User" />
+<content name="head">
+    !{Html.IncludeJs("jquery.validator")}
+</content>    
+
+<h2>Register Now</h2>
+<form id="register" method="post" action="!{Html.LinkTo<HomeController>(c => c.Register()) }">
+    <div class="formItem">
+        <label>name</label>
+        !{this.TextBox(u => u.Name)}
+    </div>    
+    <div class="formItem">
+        <label>email</label>
+        !{this.TextBox(u => u.Credentials.Email)}
+    </div>    
+    <div class="formItem">
+        <label>password</label>
+        !{this.Password(u => u.Credentials.Password).Value(string.Empty)}
+    </div>     
+    <div class="formControls">
+        <input type="submit" value="Register" />
+    </div>        
+</form>    
+
+<content name="js">
+    var options = {!{Html.RulesFor<User>() }, !{Html.GetValidationErrors()}};
+    //you can easily customize rules on a per-page basis
+    options.rules.Credentials_Password.tip += ' (between 4-50 characters)';
+    $('#register').validate(options);    
+</content>
+

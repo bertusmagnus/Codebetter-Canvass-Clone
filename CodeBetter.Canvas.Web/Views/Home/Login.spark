@@ -1,0 +1,25 @@
+<set Title="'Login'" />
+<viewdata model="Credentials" />
+
+<content name="head">
+    !{Html.IncludeJs("jquery.validator")}
+</content>
+
+<h2>Login</h2>
+<form id="login" method="post" action="!{Html.LinkTo<HomeController>(c => c.Login()) }"> 
+    <div class="formItem">
+        <label>email</label>
+        !{this.TextBox(u => u.Email)}
+        </div>    
+    <div class="formItem">
+        <label>password</label>
+        !{this.Password(u => u.Password).Value(string.Empty)}
+    </div>     
+    <div class="formControls">
+        <input type="submit" value="Login" />
+    </div>        
+</form>
+
+<content name="js">
+$('#login').validate({!{Html.RulesFor<Credentials>()}, !{Html.GetValidationErrors()}});
+</content>

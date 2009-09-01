@@ -1,12 +1,11 @@
-namespace CodeBetter.Canvas.Web.Helpers
+namespace CodeBetter.Canvas.Web
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
     using System.Web.Mvc;
     using Validation;
-    using Canvas.Helpers;
-
+    
     public static class HtmlValidationExtensions
     {
         private static readonly IDictionary<Type, string> _rules = new Dictionary<Type, string>();

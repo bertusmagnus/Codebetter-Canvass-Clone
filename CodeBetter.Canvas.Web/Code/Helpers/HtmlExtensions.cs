@@ -1,4 +1,4 @@
-namespace CodeBetter.Canvas.Web.Helpers
+namespace CodeBetter.Canvas.Web
 {
     using System;
     using System.Linq.Expressions;

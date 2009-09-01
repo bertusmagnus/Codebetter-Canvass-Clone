@@ -1,5 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Main.Master" Inherits="System.Web.Mvc.ViewPage" %>
-<asp:Content ID="MainContainer" ContentPlaceHolderID="MainContainer" runat="server">
+<viewdata model="object" />
 <h2>Overview</h2>
 <p>I recently wrote a code-heavy 3-part series on validation. Half-way through, I realized that a sample application would
 probably help bring together all the incoherent code snippets I was throwing around.</p>
@@ -29,6 +28,5 @@ to from my mistakes so that I don't do them again.</p>
 
 <p>Finally, I apologize to the people who just wanted to peak at the validation framework. My demo turned into something more.
 If I did a good job, you should be able to easily find all of the pieces.</p>
-</asp:Content>
 
 

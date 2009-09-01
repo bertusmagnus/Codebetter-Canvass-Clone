@@ -12,7 +12,7 @@ namespace CodeBetter.Canvas.Web
 
         public ViewResult Index(int? id)
         {
-            var pager = new Pager(id ?? 1, 20);
+            var pager = new Pager(id ?? 1, 3);
             return View(_repository.GetUserList(pager));            
         }
         public ViewResult View(int id)

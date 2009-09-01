@@ -1,18 +1,14 @@
 namespace CodeBetter.Canvas.Mapping.Conventions
 {
     using FluentNHibernate.Conventions;
-    using FluentNHibernate.Mapping;
+    using FluentNHibernate.Conventions.Instances;
 
     public class TableNameConvention : IClassConvention
     {
-        public bool Accept(IClassMap target)
+        public void Apply(IClassInstance instance)
         {
-            return string.IsNullOrEmpty(target.TableName);
+            instance.Table(instance.EntityType.Name + "s");         
         }
 
-        public void Apply(IClassMap target)
-        {
-            target.WithTable(target.EntityType.Name + "s");
-        }
     }
 }

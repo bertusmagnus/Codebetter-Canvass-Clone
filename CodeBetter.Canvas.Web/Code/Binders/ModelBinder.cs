@@ -4,7 +4,6 @@ namespace CodeBetter.Canvas.Web.Binders
     using System.Collections.Specialized;
     using System.Web.Mvc;
     using Canvas;
-    using Canvas.Helpers;
     using Validation;
     using Web;
 

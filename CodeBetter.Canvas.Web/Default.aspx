@@ -7,7 +7,7 @@ protected override void OnLoad(EventArgs e)
 {
     var originalPath = Request.Path;
     HttpContext.Current.RewritePath(Request.ApplicationPath, false);
-    IHttpHandler httpHandler = new MvcHttpHandler();
+    IHttpHandler httpHandler = new System.Web.Mvc.MvcHttpHandler();
     httpHandler.ProcessRequest(HttpContext.Current);
     HttpContext.Current.RewritePath(originalPath, false);
 }
