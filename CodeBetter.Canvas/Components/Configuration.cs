@@ -29,7 +29,6 @@
                 throw new ConfigurationErrorsException("Missing configuration CodeBetter.Canvas/Web");
             }
             _connectionString = node.GetString("connectionString");
-#if DEBUG
             _connectionString = MakeRelative(_connectionString);      
         }
         private static string MakeRelative(string value)
@@ -39,8 +38,7 @@
                 return HttpContext.Current.Server.MapPath(value);
             }
             return value;
-        }
-#endif
+        }     
     }
 
     public class ConfigurationHandler : IConfigurationSectionHandler
